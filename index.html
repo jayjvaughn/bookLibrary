@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styel.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Bookshelf</h1>
+        <button class="addBookBtn">New book</button>
+    </div>
+    <div class="addBookForm">
+        <h1>New Book</h1>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author">
+
+            <!-- <label for="pageNumber">Page Count</label>
+            <input type="number" id="pageNumber" name="pageNumber"> -->
+        <div class="readDiv">
+            <label for="isRead">Have you finished this ?</label>
+            <span>Yes</span><input type="radio" id="isRead" name="isRead" value="Yes">
+            <span>No</span><input type="radio" id="isRead" name="isRead" value="No">
+        </div>
+        <button class="submitButton" type="submit">Add Book</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+.header{
+    height: 100px;
+    display: flex;
+    justify-content:space-between;
+}
+.header > h1{
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+.addBookBtn{
+    width: 100px;
+    height: 50px;
+    align-self: center;
+    background-color: #2d8d2d;
+    color: white;
+    border-radius: 7px;
+    border: none;
+}
+.header > img{
+    width: 400px;
+    align-self: center;
+}
+.addBookForm{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    width: 250px;
+    height: 400px;
+    border: 2px solid gray;
+}
+label{
+    font-size: 20px;
+}
+input{
+    width: 250px;
+    height: 30px;
+    align-self: baseline;
+    border: none;
+    background: #2d8d2d5f;
+}
+input:focus{
+    outline: none;
+}
+.readDiv{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 35px;
+}
+.readDiv > span{
+align-self: center;
+}
+.readDiv > input{
+width: 15px;
+align-self: center;
+}
+.submitButton{
+    width: 200px;
+    height: 50px;
+    align-self: center;
+    background-color: #2d8d2d;
+    color: white;
+    border-radius: 7px;
+    border: none;
+}
