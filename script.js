@@ -1,15 +1,13 @@
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const isRead = document.querySelector("#yes");
-const isNotRead = document.querySelector("#no");
-const popUpBtn = document.querySelector(".addBookPopUp");
 const addBtn = document.querySelector(".submitButton");
 const containerBody = document.querySelector("#containerBody")
 
 
 const myLibrary = [];
 
-function book(title, author, pageCount, isRead){
+function book(title, author, isRead){
     this.title = title;
     this.author = author;
     this.isRead = isRead;
@@ -18,7 +16,6 @@ function book(title, author, pageCount, isRead){
 function addBookToLibrary(){
     myLibrary.push(book);
 };
-
 addBtn.addEventListener("click", bookCard);
 
                     // Book Cards
@@ -36,27 +33,19 @@ const bookAuthor =  document.createElement("div");
 bookAuthor.textContent = "Author: " + author.value;
 card.appendChild(bookAuthor);
 
-const isBookRead = function isBookReadChecker(){
-    if(yes.checked){
-    const isBookRead = document.createElement("div");
-    isBookRead.textContent = "Status: " + "Finsihed";
-    card.appendChild(isBookRead);
-    }
-    else if(no.checked){
-        const isBookRead = document.createElement("div");
-        isBookRead.textContent = "Status: " + "Still reading...";
-        card.appendChild(isBookRead);
-    }
+                // have you read the book?
+const read = document.createElement("div");
+document.getElementsByName('status')
+    .forEach(radio =>{
+        if(radio.checked){
+            // const read = document.createElement("div");
+            read.setAttribute('id', 'read');
+            read.textContent = "Status: " + radio.value;
+            card.appendChild(read);
+    }});
 
-    const newBook = new book(title.value, author.value, );
-    console.log(newBook);
-    myLibrary.push(newBook);
-
-};
-isBookRead();
-                
-                // Card Buttons
-const btnDiv = document.createElement("div");
+                    // Card Buttons
+    const btnDiv = document.createElement("div");
         btnDiv.classList.add('btnDiv');
         card.appendChild(btnDiv);
 const readBtn = document.createElement("button");
@@ -69,14 +58,27 @@ const deleteBookBtn = document.createElement("button");
     btnDiv.appendChild(deleteBookBtn);
 
     readBtn.addEventListener("click", ()=>{
-        if(isBookRead.textContent = "Status: " + "Finsihed"){
-            isBookRead.textContent = "Status: " + "Still reading...";
+        if(read.textContent == "Status: " + "Finished"){
+            read.textContent = "Status: " + "Still reading...";
+            console.log(read);
         }
-        else if(isBookRead.textContent = "Status: " + "Still reading..."){
-            isBookRead.textContent = "Status: " + "Finsihed";
+        else if(read.textContent == "Status: " + "Still reading..."){
+            read.textContent = "Status: " + "Finished";
+            console.log(read);
         }
     });
 
+    deleteBookBtn.addEventListener("click", ()=>{
+
+    });
+
+
+    const newBook = new book(title.value, author.value, );
+    console.log(newBook);
+    myLibrary.push(newBook);
+
+};               
+
 containerBody.appendChild(card);
 
-};
+

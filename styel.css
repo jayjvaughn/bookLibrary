@@ -30,6 +30,11 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
     box-shadow: 6px 6px 0 -3px #2d8d2d, 6px 6px 0 0 black;
     border-radius: 7px;
 }
+#isRead{
+    font-size: 20px;
+    align-self: center;
+    padding-right: 5px;
+}
 label{
     font-size: 20px;
     align-self: center;
