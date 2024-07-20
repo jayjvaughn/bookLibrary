@@ -1,8 +1,7 @@
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
-const isRead = document.querySelector("#yes");
 const addBtn = document.querySelector(".submitButton");
-const containerBody = document.querySelector("#containerBody")
+const containerBody = document.querySelector("#containerBody");
 
 
 const myLibrary = [];
@@ -11,12 +10,19 @@ function book(title, author, isRead){
     this.title = title;
     this.author = author;
     this.isRead = isRead;
+    this.iD = iD;
 };
+
+let iD = 0;
 
 function addBookToLibrary(){
     myLibrary.push(book);
+    containerBody.appendChild(card);
 };
-addBtn.addEventListener("click", bookCard);
+addBtn.addEventListener("click",()=> {
+bookCard();
+iD++;
+});
 
                     // Book Cards
 function bookCard(){
@@ -38,7 +44,6 @@ const read = document.createElement("div");
 document.getElementsByName('status')
     .forEach(radio =>{
         if(radio.checked){
-            // const read = document.createElement("div");
             read.setAttribute('id', 'read');
             read.textContent = "Status: " + radio.value;
             card.appendChild(read);
@@ -60,25 +65,23 @@ const deleteBookBtn = document.createElement("button");
     readBtn.addEventListener("click", ()=>{
         if(read.textContent == "Status: " + "Finished"){
             read.textContent = "Status: " + "Still reading...";
-            console.log(read);
         }
         else if(read.textContent == "Status: " + "Still reading..."){
             read.textContent = "Status: " + "Finished";
-            console.log(read);
         }
     });
 
-    deleteBookBtn.addEventListener("click", ()=>{
+card.setAttribute("id", iD);
+deleteBookBtn.addEventListener("click", (e)=>{
+    console.log(e.target.title);
+  const elementId = e.target.parentNode.parentNode.id;
+  myLibrary.splice(elementId, 1);
+            card.remove();
+});
 
-    });
-
-
+  
     const newBook = new book(title.value, author.value, );
     console.log(newBook);
     myLibrary.push(newBook);
 
-};               
-
-containerBody.appendChild(card);
-
-
+}; 
